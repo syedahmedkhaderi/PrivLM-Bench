@@ -8,25 +8,25 @@ BASE_DIR = ''
 config = {}
 #gpt2 (124M), gpt2-medium (355M), gpt2-large (774M), gpt2-xl (1558M~1.5B)
 #bert-base-uncased,roberta-large
-config['model'] = "openai-community/gpt2"
+config['model'] = "gpt2"
 config['optimizer'] = "adamw"
-config['lr'] = 1e-4
+config['lr'] = 2e-5
 config['batch_size'] = 4
 config['virtual_batch_size'] = 1024
 config['n_accumulation_steps'] = int(config['virtual_batch_size']/config['batch_size'])
-config['epochs'] = 5
+config['epochs'] = 2
 #config['dp'] = True
 config['dp'] = False
 config['seed'] = 42
 ### freeze embedding layers
 config['freeze_embedding'] = True
 #### qnli,sst2,mnli
-config['dataset_name'] = "mnli"
+config['dataset_name'] = "sst2"
 config['insert_proportion'] = 0.6
 #### canary config
-config['canary_type_list'] = ['name', 'city', 'email', 'phone_number', 'letters', 'setting_1', 'setting_2']
-config["insert_proportion_list"] = [0.4] * 7
-config["insert_time_base_list"] = [10] * 7
+config['canary_type_list'] = ['email']
+config["insert_proportion_list"] = [0.6]
+config["insert_time_base_list"] = [1, 5, 10]  # canary repetitions
 # config['canary_type_list'] = []
 # config["insert_proportion_list"] = []
 # config["insert_time_base_list"] = []
@@ -35,8 +35,14 @@ config['tokenizer_len'] = 256           ### tokenizer's max lenth with truncatio
 config['data_type'] = "train"
 ### privacy engine args
 config['target_delta'] = 1e-5
-config['target_epsilon'] = 8
+config['target_epsilon'] = 8.0
 config['max_grad_norm'] = 0.1
+### additional config
+config['max_training_steps'] = 500
+config['output_dir'] = "./results"
+config['eval_batch_size'] = 16
+config['save_model'] = False
+config['num_canaries'] = 10
 
 
 #utility evaluation config

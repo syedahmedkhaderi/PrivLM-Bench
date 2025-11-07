@@ -16,7 +16,7 @@ sys.path.append(BASE_DIR)
 sys.path.append(CURRENT_DIR)
 
 ## debug
-with open(os.path.join("/home/data/hlibt/tosave/P-bench-0529", "dataset", "default_canary.json"), "rb") as f:
+with open(os.path.join(BASE_DIR, "dataset", "default_canary.json"), "rb") as f:
     default_canary = pickle.load(f)
 def generate_evaluation_sequence_for_t5(canary_type="email", use_full_text=False, insert_proportion=0.4):
     canary_format = default_canary[canary_type]["canary_format"]

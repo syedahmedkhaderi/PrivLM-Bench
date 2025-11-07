@@ -189,7 +189,7 @@ def get_mnli_data_cls(data_type):
 '''
 This is for generative LMs
 '''
-def get_sent_list(dataset_name, data_type,is_aux=False,return_all=False):
+def get_sent_list(dataset_name, data_type,is_aux=False,return_all=False,SEED_NUMBER=42):
     if dataset_name == 'personachat':
         processed_persona_path = "data/personachat/processed_persona"
         processed_persona_path = os.path.join(DIR_PATH, "..","data","personachat","processed_persona")
