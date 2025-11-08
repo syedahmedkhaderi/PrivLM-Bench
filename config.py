@@ -19,7 +19,7 @@ config['epochs'] = 2
 config['dp'] = False
 config['seed'] = 42
 ### freeze embedding layers
-config['freeze_embedding'] = True
+config['freeze_embedding'] = False
 #### qnli,sst2,mnli
 config['dataset_name'] = "sst2"
 config['insert_proportion'] = 0.6
