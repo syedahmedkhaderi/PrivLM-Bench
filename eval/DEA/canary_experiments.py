@@ -448,6 +448,6 @@ if __name__ == "__main__":
     config["insert_proportion_list"] = [0.4] * 7
     config["insert_time_base_list"] = [10] * 7
 
-    trainer = DP_trainer(**config)
+    trainer = DP_trainer(config)
     trainer.train_our_model()
     trainer.canary_evaluate()
