@@ -1,0 +1,12 @@
+
+# Commands to Reproduce Results
+
+## 1. Run DEA Experiments
+python eval/dea/canary_experiments.py --model gpt2 --config config.yaml --output-dir ./results --seed 42
+
+## 2. Results Location
+./results/dea_results_gpt2.json
+
+## 3. Plots Location
+./results/plots/exposure_vs_frequency.png
+./results/plots/exposure_by_type.png
