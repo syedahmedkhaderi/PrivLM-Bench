@@ -7,7 +7,11 @@ sys.path.append(BASE_DIR)
 
 import wandb
 import torch, transformers
-from transformers.optimization import AdamW, get_linear_schedule_with_warmup
+try:
+    from transformers.optimization import AdamW, get_linear_schedule_with_warmup
+except ImportError:
+    from torch.optim import AdamW
+    from transformers import get_linear_schedule_with_warmup
 from private_transformers import PrivacyEngine
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset
